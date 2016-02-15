@@ -17,18 +17,19 @@
             Double hourlyPay = Double.parseDouble(request.getParameter("hourlyPay"));
             Double preTaxDeduct = Double.parseDouble (request.getParameter("preTaxDeduct"));
             Double postTaxDeduct = Double.parseDouble(request.getParameter("postTaxDeduct"));
-            Double taxablePay = grossPay - preTaxDeduct;
-            Double grossPay = Double.parseDouble(request.getParameter("grossPay"));
-            Double otHours = Double.parseDouble(request.getParameter("otHours"));
-            Double otPayRate = Double.parseDouble(request.getParameter("otPayRate"));
-            Double netPay = postTaxPay - postTaxDeduct;
-            Double taxAmount = Double.parseDouble(request.getParameter("taxAmount"));
-            Double postTaxPay = taxablePay - taxAmount;
             
+            Double grossPay = hoursWorked * hourlyPay;
+            Double taxablePay = grossPay - preTaxDeduct;
+            Double otHours = 0.00;
+            Double otPayRate = hourlyPay * 1.5;
+            Double taxAmount = taxablePay * .22;
+            Double postTaxPay = taxablePay - taxAmount;
+            Double netPay = postTaxPay - postTaxDeduct;
+            Double regularHours = 40.00;
             
             
           if(hoursWorked > 40) {
-                   double regularHours=40.00;
+                   regularHours=40.00;
                    otHours = hoursWorked - 40;
                    otPayRate = hourlyPay * 1.5;
                    double otPay = otHours * otPayRate;
