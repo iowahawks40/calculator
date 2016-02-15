@@ -9,7 +9,8 @@ and open the template in the editor.
 */
 
 body {background: aqua; font-family: "Times New Roman";}
-h1 {font-weight:bold; font-style:italic; color: white;}
+h1 {text-align: center; font-weight:bold; font-style:italic; color: white;}
 td {font-style: bold; color: white;}
-hr {width: 300px;}
+hr {width: 375px;}
+form {margin: 0 auto; width:375px}
 
