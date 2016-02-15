@@ -10,11 +10,7 @@
     <head>
         
         <%
-            
-            
-            
-      
-        
+ 
         %>
         
         
@@ -25,28 +21,32 @@
     <body>
         <h1>Simple Salary Calculator</h1>
         <hr>
-        <form>
+        <form name="calculatorForm" action="results.jsp" method="post">
         
         <table> 
             <tbody>
     <tr>
         <td>Hours Worked:</td>
-        <td><input type="number" name="Hours Worked" value="" size="50"></td>
+        <td><input type="number" name="hoursWorked" value="" size="50" required ></td>
+        
     </tr>
       
     <tr>
         <td>Hourly Pay:</td>
-        <td><input type="number" name="Hourly Pay" value="" size="50"></td>
+        <td><input type="number" name="hourlyPay" value="" size="50" required ></td>
+        
     </tr>
     
     <tr>
         <td>Pre-tax Deduct:</td>
-        <td><input type="number" name="Pre-tax Deduct" value="" size="50"></td>
+        <td><input type="number" name="preTaxDeduct" value="" size="50" required ></td>
+        
     </tr>
     
     <tr>
         <td>Post-tax Deduct:</td>
-        <td><input type="number" name="Post-tax Deduct" value="" size="50"></td>
+        <td><input type="number" name="postTaxDeduct" value="" size="50" required ></td>
+        
     </tr>
             </tbody>
         </table>
@@ -54,6 +54,11 @@
         <input type="reset" value="Clear" id="clear">
         <input type="submit" value="Submit" id="submit">
         
+        
+        
         </form>
+        
+        
+        
     </body>
 </html>
