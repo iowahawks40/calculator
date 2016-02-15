@@ -10,6 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title> Calculation Results </title>
+        <link rel="stylesheet" type="text/css" href="csspage.css" />
     </head>
     
     <%
@@ -19,9 +20,10 @@
             Double postTaxDeduct = Double.parseDouble(request.getParameter("postTaxDeduct"));
             
             Double grossPay = hoursWorked * hourlyPay;
-            Double taxablePay = grossPay - preTaxDeduct;
+            
             Double otHours = 0.00;
             Double otPayRate = hourlyPay * 1.5;
+            Double taxablePay = grossPay - preTaxDeduct;
             Double taxAmount = taxablePay * .22;
             Double postTaxPay = taxablePay - taxAmount;
             Double netPay = postTaxPay - postTaxDeduct;
