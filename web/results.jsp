@@ -20,35 +20,37 @@
             Double postTaxDeduct = Double.parseDouble(request.getParameter("postTaxDeduct"));
             
             Double grossPay = hoursWorked * hourlyPay;
-            
             Double otHours = 0.00;
             Double otPayRate = hourlyPay * 1.5;
-            Double taxablePay = grossPay - preTaxDeduct;
-            Double taxAmount = taxablePay * .22;
-            Double postTaxPay = taxablePay - taxAmount;
-            Double netPay = postTaxPay - postTaxDeduct;
             Double regularHours = 40.00;
-            
-            
-          if(hoursWorked > 40) {
-                   regularHours=40.00;
+            Double taxAmount = 0.00;
+           
+          if(hoursWorked > 40.00) {
+                   regularHours= 40.00;
                    otHours = hoursWorked - 40;
                    otPayRate = hourlyPay * 1.5;
                    double otPay = otHours * otPayRate;
                    double regularPay = regularHours * hourlyPay;
                    grossPay = regularPay + otPay;
-          }
+                                 }
           else {
                    grossPay = hoursWorked * hourlyPay;
-                           }
+               }
           
-          if (grossPay < 500) {
-              
-              taxAmount = taxablePay * .18;
-          }
-          else {
-              taxAmount = taxablePay * .22;
-          }
+           Double preTaxPay = grossPay - preTaxDeduct;
+           
+           if(grossPay< 500.00) {
+                    taxAmount = preTaxPay *.18;
+                                }
+           else {
+                    taxAmount = preTaxPay *.22;
+                }
+           
+           
+           Double postTaxPay = preTaxPay - taxAmount;
+           Double netPay = postTaxPay - postTaxDeduct;
+          
+       
       
         %>
     
@@ -85,6 +87,11 @@
                 <tr>
                     <td> Pre-tax Deduct:</td>
                     <td><%= preTaxDeduct %></td>
+                </tr>
+                
+                <tr>
+                    <td> Pre-tax Pay:</td>
+                    <td><%= preTaxPay %></td>
                 </tr>
                 
                 <tr>
